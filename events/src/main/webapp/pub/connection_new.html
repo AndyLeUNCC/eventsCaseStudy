@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Connection</title>
+<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/materialized.css">
+<link rel="stylesheet" href="./css/sub_menu.css">
+
+<!-- Using the JQuery   -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js">
+	
+</script>
+
+<script type="text/javascript" src="./js/addOptions.js">
+	
+</script>
+</head>
+
+<body>
+
+	<header class="navigation max-width-1 m-auto">
+		<!-- The navigation menu -->
+		<div class="nav-left">
+			<a href="index.html"> <span class="logo"> <img
+					src="./Images/bloglogo.png" alt="Blog Logo"></span>
+			</a>
+		</div>
+		<div class="navbar">
+
+			<a href="login.html" class="active">Logout</a> <a
+				href="users_profile.html" class="active">Profile</a> <a
+				href="connection_new.html" class="active">Start a new connection</a>
+
+
+		</div>
+	</header>
+	<nav class="navigation max-width-1 m-auto">
+
+		<div class="navbar">
+			<a href="connections.html" class="connection">Connections</a> <a
+				href="users_profile.html" class="welcome"> Welcome, Tom Le!</a>
+
+		</div>
+	</nav>
+
+
+	<!-- Main -->
+	<div class="home-articles max-width-1 m-auto font2">
+		<div class="max-width-1 m-auto mx-1">
+			<div class="connection-form">
+				<form method="POST" action="connections" name="connection_form"
+					id="connection_form">
+
+					<div class="form-box">
+						<label for="category"><b>Category</b></label> <select
+							name="category" id="category">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="mercedes">Mercedes</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+
+					<p>Click the button below to add more option to the select box.</p>
+					<button id="add_option" class="btn" onclick="addOption()">Add
+						Option</button>
+
+					<br>
+					<div class="form-box">
+						<label for="name"><b>Title</b></label> <input id="name"
+							name="name" type="text" placeholder=" title " value=""
+							minlength="3" required="">
+					</div>
+					<!-- <div class="form-box">
+                             <label for="hostName"><b>Host</b></label>
+                             <input id="hostName" name="hostName" type="text"  value="" required>
+                         </div> -->
+					<div class="form-box">
+						<label for="details"><b>Details</b></label>
+						<textarea name="details" id="details" cols="30" rows="2"
+							placeholder="description" minlength="3" required=""></textarea>
+					</div>
+					<div class="form-box">
+						<label for="location"><b>Where</b></label> <input id="location"
+							name="location" type="text" placeholder=" location " value=""
+							required="">
+					</div>
+					<div class="form-box">
+						<label for="date"><b>When</b></label> <input id="date" name="date"
+							type="date" value="" required="">
+					</div>
+					<div class="form-box">
+						<label for="startTime"><b>Start</b> </label> <input id="startTime"
+							name="startTime" type="time" value="" required="">
+					</div>
+					<div class="form-box">
+						<label for="endTime"><b>End</b> </label> <input id="endTime"
+							name="endTime" type="time" value="" required="">
+					</div>
+					<div class="form-box">
+						<label for="image"><b>Image URL</b></label> <input id="image"
+							name="image" type="text" placeholder=" image URL " value=""
+							required="">
+					</div>
+					<div class="form-box">
+						<button type="submit" id="submit" class="btn">Create
+							Connection</button>
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+	<!-- Footer -->
+	<div class="footer max-width-1 m-auto">
+		<div class="block ">
+			<p>
+				©2022 Andy Connections <a href="about.html"> About</a> <a
+					href="contact.html"> Contact</a>
+			</p>
+
+		</div>
+		<div class="block shift-right">
+			<img src="./Images/twitter.png" alt="twitter icon"> <img
+				src="./Images/facebook.png" alt="facebook icon">
+
+		</div>
+	</div>
+
+
+</body>
+
+</html>

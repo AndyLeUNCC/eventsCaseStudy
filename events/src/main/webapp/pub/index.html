@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Page</title>
+<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/materialized.css">
+<link rel="stylesheet" href="./css/sub_menu.css">
+<!-- Import for using slider animation -->
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css"
+	rel="stylesheet" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"></script>
+<script src="./js/slider.js"></script>
+
+</head>
+<body>
+
+	<header class="navigation max-width-1 m-auto">
+		<!-- The navigation menu -->
+		<div class="nav-left" aria-label="logo">
+			<a href="index.html"> <span class="logo"> <img
+					src="Images/bloglogo.png" alt="Blog Logo"></span>
+			</a>
+		</div>
+		<div class="navbar" aria-label="navigation bar">
+
+			<a href="newConnection.html" class="active">Start a new
+				connection</a> <a href="login.html" class="active">Login</a> <a
+				href="signUp.html" class="active">Sign up</a>
+			<div class="dropdown" aria-label="Entertainment Menu">
+				<button class="dropbtn">
+					Entertainment <i class="fa fa-caret-down"></i>
+				</button>
+				<div class="dropdown-content"
+					aria-label="Dropdown content of Entertainment">
+					<a href="entertaiment_search.html">Search Photos</a>
+
+
+				</div>
+			</div>
+		</div>
+	</header>
+	<nav class="navigation max-width-1 m-auto">
+
+		<div class="navbar" aria-label="navigation bar">
+			<a href="connections.html" class="active">Connections</a>
+
+		</div>
+	</nav>
+	<!-- Main -->
+	<div class="home-articles max-width-1 m-auto font2">
+
+		<div class="content-left">
+			<h2>Welcome to Andy Connections site!!!</h2>
+			<p>Thank you for visiting The Andy Connections! This section
+				contains a collection of articles and tales about connecting. Not
+				unexpectedly, we'll discuss different sorts of beverages as well as
+				entertainment that links you to the people and things you care
+				about.</p>
+			<p>Check out the Connections section to browse available
+				connections!</p>
+
+		</div>
+		<div class="content-right">
+			<!-- Slider Images -->
+			<ul id="slider">
+				<li><img src="./Images/images_slider/party.jpg"
+					alt="Funny Party" title="Funny Party"></li>
+				<li><img src="./Images/images_slider/party1.jpg"
+					alt="Funny Party" title="Funny Party"></li>
+				<li><img src="./Images/images_slider/party2.jpg"
+					alt="Funny Party" title="Funny Party"></li>
+				<li><img src="./Images/images_slider/party3.jpg"
+					alt="Funny Party" title="Funny Party"></li>
+				<li><img src="./Images/images_slider/party4.jpg"
+					alt="Funny Party" title="Funny Party"></li>
+
+
+			</ul>
+			<p id="id_pager"></p>
+
+		</div>
+
+
+	</div>
+
+	<!-- Footer -->
+	<div class="footer max-width-1 m-auto">
+		<div class="block ">
+			<p>
+				&copy;2022 Andy Connections <a href="#"> About</a> <a href="#">
+					Contact</a>
+			</p>
+
+		</div>
+		<div class="block shift-right">
+			<img src="./Images/twitter.png" alt="twitter icon"> <img
+				src="./Images/facebook.png" alt="facebook icon">
+
+		</div>
+	</div>
+
+</body>
+</html>

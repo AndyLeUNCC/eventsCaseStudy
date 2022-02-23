@@ -1,0 +1,141 @@
+@import
+	url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2&display=swap')
+	;
+
+:root { 
+	-main-bg-color: pink; 
+	-font1: 'Times New Roman', cursive; 
+	-font2: 'Arial ', sans-serif;
+} 
+
+.center {
+	text-align: center;
+}
+
+.font1 {
+	font-family: var(- -font1);
+}
+
+.font2 {
+	font-family: var(- -font2);
+}
+
+.max-width-1 {
+	max-width: 85vw;
+}
+
+.max-width-2 {
+	max-width: 50vw;
+}
+
+.max-height {
+	max-height: 50vw;
+}
+
+.m-auto {
+	/* margin: auto; */
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.mx-1 {
+	margin-left: 23px;
+	margin-right: 23px;
+}
+
+.my-2 {
+	margin-top: 32px;
+	margin-bottom: 32px;
+}
+
+.btn {
+	 /* border: 2px solid black;
+	    margin-left: 20px;
+
+	height: 30px;
+	padding-left: 5px;
+	padding-right: 5px;
+	text-align: center;
+	border-radius: 6px;
+	font-family: var(- -font1);
+	font-size: 12px;
+	transition: all 0.3s ease-in-out;
+	background-color: black;
+	color: white;
+	display: flex;
+    float:center;  */
+    
+    border: 2px solid black;
+    margin-left: 20px;
+    height: 50px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+    border-radius: 6px;
+    font-family: var(- -font1);
+    font-size: 14px;
+    transition: all 0.3s ease-in-out;
+    background-color: black;
+    color: white
+}
+
+.btn:hover {
+	color: red;
+	opacity: 0.7;
+	
+	background: pink;
+}
+
+.form-box {
+	margin-bottom: 10px;
+	margin-top: 5px;
+}
+
+.form-box label {
+	display: inline-block;
+	width: 160px;
+	align-items: center;
+}
+
+.form-box input, select {
+	width: 350px;
+	height: 30px;
+	padding: 0px 6px;
+	margin: 5px;
+	font-size: 12px;
+	font-family: var(- -font1);
+	border: 2px solid rgb(109, 105, 110);
+	border-radius: 5px;
+}
+
+.form-box input[type=button], input[type=submit] {
+	/*  width: 40%; */
+	width: 80px;
+	height: 30px;
+	padding: 0px 6px;
+	margin: 5px;
+	font-size: 14px;
+	align-items: center;
+	font-family: var(- -font1);
+	border: 2px solid rgb(109, 105, 110);
+	border-radius: 5px;
+}
+
+.form-box textarea {
+	width: 400px;
+	height: 60px;
+	padding: 0px 6px;
+	margin: 5px;
+	font-size: 12px;
+	font-family: var(- -font1);
+	border: 2px solid rgb(109, 105, 110);
+	border-radius: 5px;
+}
+
+.center {
+	/* border: 5px solid #FFFF00; */
+	text-align: center;
+}

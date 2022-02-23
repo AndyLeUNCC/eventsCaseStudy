@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photos Search Page</title>
+<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/materialized.css">
+<link rel="stylesheet" href="./css/sub_menu.css">
+
+<!-- link to the API service of search photos from flirk -->
+<link rel="stylesheet" href="./lightbox/css/lightbox.min.css">
+<script src="./lightbox/js/lightbox-plus-jquery.min.js"></script>
+<script src="./js/search_photos.js"></script>
+</head>
+
+<body>
+
+	<header class="navigation max-width-1 m-auto">
+		<!-- The navigation menu -->
+		<div class="nav-left" aria-label="logo">
+			<a href="index.html"> <span class="logo"> <img
+					src="Images/bloglogo.png" alt="Blog Logo"></span>
+			</a>
+		</div>
+		<div class="navbar" aria-label="navigation bar">
+
+			<a href="connection_new.html" class="active">Start a new
+				connection</a> <a href="login.html" class="active">Login</a> <a
+				href="signUp.html" class="active">Sign up</a>
+			<div class="dropdown" aria-label="Entertainment Menu">
+				<button class="dropbtn">
+					Entertainment <i class="fa fa-caret-down"></i>
+				</button>
+				<div class="dropdown-content"
+					aria-label="Dropdown content of Entertainment">
+					<a href="entertaiment_search.html">Search Photos</a>
+
+
+				</div>
+			</div>
+		</div>
+	</header>
+	<nav class="navigation max-width-1 m-auto">
+
+		<div class="navbar" aria-label="navigation bar">
+			<a href="connections.html" class="active">Connections</a>
+
+		</div>
+	</nav>
+	<!-- Main -->
+	<div class="home-articles max-width-1 m-auto font2">
+
+		<div class="content-left">
+			<h2>Search photo on Flickr's services</h2>
+
+			<p>Type something in the input field to search:</p>
+			<div class="form-box">
+				<input id="myInput" type="text" placeholder="Search..">
+			</div>
+			<br>
+			<div id="photos"></div>
+		</div>
+
+
+
+	</div>
+
+	<!-- Footer -->
+	<div class="footer max-width-1 m-auto">
+		<div class="block ">
+			<p>
+				&copy;2022 Andy Connections <a href="about.html"> About</a> <a
+					href="contact.html"> Contact</a>
+			</p>
+
+		</div>
+		<div class="block shift-right">
+			<img src="./Images/twitter.png" alt="twitter icon"> <img
+				src="./Images/facebook.png" alt="facebook icon">
+
+		</div>
+	</div>
+
+</body>
+</html>

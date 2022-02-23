@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up</title>
+<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/materialized.css">
+<link rel="stylesheet" href="./css/sub_menu.css">
+</head>
+<script type="text/javascript" src="./js/validate.js">
+	
+</script>
+<body>
+
+	<header class="navigation max-width-1 m-auto">
+		<!-- The navigation menu -->
+		<div class="nav-left" aria-label="logo">
+			<a href="index.html"> <span class="logo"> <img
+					src="Images/bloglogo.png" alt="Blog Logo"></span>
+			</a>
+		</div>
+		<div class="navbar" aria-label="navigation bar">
+			<a href="connection_new.html" class="active">Start a new
+				connection</a> <a href="login.html" class="active">Login</a> <a
+				href="signUp.html" class="active">Sign up</a>
+		</div>
+	</header>
+	<nav class="navigation max-width-1 m-auto">
+
+		<div class="navbar" aria-label="navigation bar">
+			<a href="connections.html" class="active">Connections</a>
+
+		</div>
+	</nav>
+	<!-- Main -->
+	<div class="home-articles max-width-1 m-auto font2">
+
+		<div class="register-photo">
+			<div class="form-container">
+				<div class="image-holder"></div>
+				<form name="sign_up" method="post" action="users_profile.html"
+					onSubmit="return validate_form()">
+					<h2 class="text-center">
+						<strong>Create</strong> an account.
+					</h2>
+					<div class="form-group">
+						<input class="form-control" type="email" name="email"
+							placeholder="Email" value="test@gmail.com">
+					</div>
+					<div class="form-group">
+						<input class="form-control" type="password" name="password"
+							placeholder="Password" value="123a">
+					</div>
+					<div class="form-group">
+						<input class="form-control" type="password" name="password_repeat"
+							value="123a" placeholder="Password (repeat)">
+					</div>
+					<div class="form-group">
+						<div class="form-check">
+							<label class="form-check-label"><input
+								class="form-check-input" type="checkbox">I agree to the
+								license terms.</label>
+						</div>
+					</div>
+					<div class="form-group">
+						<button class="btn btn-success btn-block" type="submit">Sign
+							Up</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- Footer -->
+	<div class="footer max-width-1 m-auto">
+		<div class="block ">
+			<p>
+				&copy;2022 Andy Connections <a href="about.html"> About</a> <a
+					href="contact.html"> Contact</a>
+			</p>
+
+		</div>
+		<div class="block shift-right">
+			<img src="./Images/twitter.png" alt="twitter icon"> <img
+				src="./Images/facebook.png" alt="facebook icon">
+
+		</div>
+	</div>
+
+</body>
+</html>

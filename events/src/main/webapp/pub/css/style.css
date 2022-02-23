@@ -1,0 +1,394 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* Float four columns side by side */
+.column {
+	float: left;
+	width: 25%;
+	padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {
+	margin: 0 -5px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+	.column {
+		width: 100%;
+		display: block;
+		margin-bottom: 20px;
+	}
+}
+
+/* Style the counter cards */
+.card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	padding: 16px;
+	margin-bottom: 15px;
+	text-align: center;
+	background-color: #f1f1f1;
+}
+
+.navigation {
+	margin-top: 25px;
+	font-family: var(- -font1);
+	height: 74px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.nav-left {
+	font-size: 20px;
+	display: flex;
+}
+
+.nav-left img {
+	margin-top: 50px;
+	width: 50%;
+	height: 50%;
+}
+
+.nav-left ul {
+	display: flex;
+	align-items: center;
+	margin: 0 77px;
+	font-size: 18px;
+}
+
+.nav-left ul li {
+	list-style: none;
+	margin: 0 14px;
+	font-family: var(- -font2);
+	transition: all 0.3s ease-in-out;
+}
+
+.nav-left ul li a {
+	text-decoration: none;
+	color: black;
+}
+
+.nav-left ul li a:hover {
+	color: var(- -main-bg-color);
+	font-weight: bolder;
+}
+
+.content {
+	display: flex;
+	height: 350px;
+	margin-top: 32px;
+	padding: 9px;
+	position: relative;
+}
+
+.content_about {
+	display: flex;
+	height: 600px;
+	margin-top: 32px;
+	padding: 9px;
+	position: relative;
+}
+
+.content::after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: inherit;
+	opacity: 0.2;
+	border-radius: 12px;
+}
+
+.content-left {
+	font-family: var(- -font1);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 10px;
+	margin-left: 70px;
+	z-index: 1;
+}
+
+.content-right {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.content-right img {
+	height: 265px;
+	border: 2px solid black;
+	border-radius: 100px;
+}
+
+.home-articles {
+	background-color: f1f7fc;
+	position: relative;
+	/*     max-height: 480px;
+ */
+	overflow: auto;
+	/* height: 70%;old_value:500px; */
+}
+
+.home-article {
+	display: flex;
+	margin: 25px;
+}
+
+.home-article img {
+	width: 300px;
+}
+
+.home-article-content {
+	align-self: center;
+	padding: 25px;
+}
+
+.home-article-content a {
+	text-decoration: none;
+	color: black;
+}
+
+/*
+Reference code for styling the footer
+https://stackoverflow.com/questions/57142685/how-to-put-text-right-and-left-in-a-footer-like-the-one-in-the-image
+*/
+.footer {
+	width: 100%;
+	padding: 15px;
+	box-sizing: border-box;
+	min-height: 15px;
+	background-color: black;
+	border: thin solid #d3d3d3;
+	position: auto;
+	bottom: 0;
+	left: 0;
+}
+
+.footer a {
+	color: white;
+	margin-left: 10px;
+}
+
+.footer img {
+	width: 30%;
+	height: 30%;
+}
+
+.block {
+	display: inline-block; /* important */
+	color: white;
+}
+
+.shift-right {
+	float: right; /* important */
+}
+
+.block-connection {
+	margin-top: 0px;
+	margin-bottom: 20px;
+	display: inline-block;
+	color: black;
+ 	width: 450px;
+ }
+
+.block-connection-image {
+	margin-top: 20px;
+	display: inline-block;
+	color: black;
+	width: 00px;
+}
+
+.block-connection-update-delete {
+	margin-top: 20px;
+	display: inline-block;
+	color: black;
+	width: 300px; 
+}
+
+.block-connection img {
+	width: 100%;
+	height: 70%;
+}
+
+.block-connection-detail {
+	margin-top: 20px;
+	margin-left: 100px;
+	
+	display: inline-block;
+	color: black;
+	width: 400px;
+}
+
+.block-connection-detail-right {
+	/* display: inline-block; */
+	width: 400px;
+	align-content: left;
+}
+
+.middle-block-connection-detail {
+	display: inline-block;
+	width: 650px;
+	height:fit-content;
+	align-content: left;
+}
+
+.connection-form {
+	height: 450px;
+	align-content: center;
+	display: flex;
+	justify-content: left;
+	margin-left: 100px;
+}
+
+.connection-detail-form {
+	width: auto;
+/* 	height: 400px;
+ */}
+
+/*
+Styling for the Sign Up form
+*/
+.register-photo {
+	background: #f1f7fc;
+	padding: 50px 0;
+	width: 80%;
+}
+
+.register-photo .image-holder {
+	display: table-cell;
+	background: url(../Images/loginlogo.png);
+	background-size: auto i
+}
+
+.register-photo .form-container {
+	display: table;
+	max-width: 900px;
+	width: 90%;
+	margin: 0 auto;
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1)
+}
+
+.register-photo form {
+	display: table-cell;
+	width: 250px;
+	background-color: #ffffff;
+	padding: 40px 60px;
+	color: #505e6c
+}
+
+@media ( max-width :991px) {
+	.register-photo form {
+		padding: 40px
+	}
+}
+
+.register-photo form h2 {
+	font-size: 24px;
+	line-height: 1.5;
+	margin-bottom: 30px
+}
+
+.register-photo form .form-control {
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid #dfe7f1;
+	border-radius: 0;
+	box-shadow: none;
+	outline: none;
+	color: inherit;
+	text-indent: 0px;
+	height: 40px
+}
+
+.register-photo form .form-check {
+	font-size: 13px;
+	line-height: 20px
+}
+
+.register-photo form .btn-primary {
+	background: green;
+	border: none;
+	border-radius: 4px;
+	padding: 11px;
+	box-shadow: none;
+	margin-top: 35px;
+	text-shadow: none;
+	outline: none !important
+}
+
+.register-photo form .btn-primary:active {
+	transform: translateY(1px)
+}
+
+.register-photo form .already {
+	display: block;
+	text-align: center;
+	font-size: 12px;
+	color: #6f7a85;
+	opacity: 0.9;
+	text-decoration: none
+}
+
+.success {
+	background: rgba(108, 192, 112, 0.7);
+	color: #fff;
+	width: 70%;
+	text-align: center;
+	padding: 1px 1px;
+}
+
+.error {
+	background: rgba(255, 102, 51, 0.7);
+	color: #fff;
+	width: 70%;
+	text-align: center;
+	padding: 1px 1px;
+}
+
+.table-connection {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: fit-content;
+}
+
+.table-rsvp {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: fit-content;
+}
+
+.table-register-user {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: fit-content;
+}
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+
+th {
+	color: white;
+	background: green;
+}
+
+tr:nth-child(even) {
+	background-color: #dddddd;
+}
+
+/* * {
+    box-sizing: border-box;
+  } */
