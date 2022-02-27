@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.events.database.dao.ConnectionDAO;
 import com.events.database.entity.Connection;
+import com.events.database.form.ConnectionProfileBean;
+import com.events.database.form.IConnectionProfile;
 
 @Service
 public class ConnectionService {
@@ -24,7 +26,7 @@ public class ConnectionService {
 	public Connection findById(Integer id) {
 		return repo.findById(id);
 	}
-	
+
 	public void save(Connection connection) {
 		try {
 			repo.save(connection);
@@ -34,19 +36,17 @@ public class ConnectionService {
 		}
 
 	}
-	
+
 	public List<Connection> findByHostId(Integer hostId) {
 		return repo.findByHostId(hostId);
-		
+
 	}
-	
-	/*
-	 * public List<Object> findConnectionsByHostId(Integer hostId) { return
-	 * repo.findConnectionsByHostId(hostId);
-	 * 
-	 * }
-	 */
-	
+
+	public List<IConnectionProfile> findConnectionsByHostId(Integer hostId) {
+		return repo.findConnectionsByHostId(hostId);
+
+	}
+
 	public void delete(Connection connection) {
 		try {
 			repo.delete(connection);
