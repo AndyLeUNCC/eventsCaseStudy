@@ -108,14 +108,13 @@ public class RsvpController {
         ModelAndView response = new ModelAndView();
 
         //response.setViewName("redirect:/connection/list");
-        response.setViewName("redirect:/connection/show?id="+id);
+        response.setViewName("redirect:/user/profile");
 
         //search rsvps that are relationship with this connection
-        List<Rsvp> listDelete = rsvp_service.findByConnection(id);
-        if (listDelete != null ) {
-        	for(Rsvp delete:listDelete) {
-            	rsvp_service.delete(delete);
-        	}
+        Rsvp delete = rsvp_service.findById(id);
+        if (delete != null ) {
+            rsvp_service.delete(delete);
+        	
         }
         
         return response;

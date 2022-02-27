@@ -1,15 +1,14 @@
 package com.events.database.dao;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.events.database.entity.Connection;
-import com.events.database.form.ConnectionProfileBean;
 import com.events.database.form.IConnectionProfile;
+import com.events.database.form.IConnectionProfileRsvp;
 
 
 
@@ -31,6 +30,10 @@ public interface ConnectionDAO extends JpaRepository<Connection, Long> {
     List<IConnectionProfile> findConnectionsByHostId(@Param("host_id")  Integer hostId);
    //String is column name, Object is value of that column
 
+   @Query(value = "select rsvp.id, rsvp.user, rsvp.connection, connections.name, rsvp.attending, categories.name as categoryName "
+   		+ "from rsvp, connections, categories "
+   		+ "where user = :user and rsvp.connection = connections.id and connections.category_id = categories.id", nativeQuery = true)
+   List<IConnectionProfileRsvp> findRsvpByUser(@Param("user") Integer user);
     
     @Query("SELECT c FROM Connection c WHERE c.name LIKE %?1%"
             + " OR c.details LIKE %?1%"
