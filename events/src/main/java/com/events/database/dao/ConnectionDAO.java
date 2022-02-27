@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.events.database.entity.Connection;
+import com.events.database.form.ConnectionProfileBean;
+import com.events.database.form.IConnectionProfile;
 
 
 
@@ -22,11 +24,11 @@ public interface ConnectionDAO extends JpaRepository<Connection, Long> {
     @Query(value= "select c.* from connections c where c.host_id = :host_id",  nativeQuery = true)
     List<Connection> findByHostId(@Param("host_id")  Integer hostId);
     
-  // @Query(value= "select con.id, con.name, cate.name as categoryName from connections con, categories cate "
-  // 		+ "where con.category_id = cate.id and con.host_id = :host_id",  nativeQuery = true)
+   @Query(value= "select con.id, con.name, cate.name as categoryName from connections con, categories cate "
+  		+ "where con.category_id = cate.id and con.host_id = :host_id",  nativeQuery = true)
    // @Query(value= "select con.* from connections con, categories cate "
     //		+ "where con.category_id = cate.id and con.host_id = :host_id",  nativeQuery = true)
-   // List<Map<String,Object>> findConnectionsByHostId(@Param("host_id")  Integer hostId);
+    List<IConnectionProfile> findConnectionsByHostId(@Param("host_id")  Integer hostId);
    //String is column name, Object is value of that column
 
     

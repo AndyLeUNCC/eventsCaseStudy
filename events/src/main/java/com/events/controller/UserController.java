@@ -33,6 +33,7 @@ import com.events.database.entity.Connection;
 import com.events.database.entity.User;
 import com.events.database.form.ConnectionProfileBean;
 import com.events.database.form.EditUserBean;
+import com.events.database.form.IConnectionProfile;
 import com.events.database.form.RegisterFormBean;
 import com.events.service.CategoryService;
 import com.events.service.ConnectionService;
@@ -150,15 +151,16 @@ public class UserController {
         //response.addObject("userProfile", user);
 
         //create ConnectionProfileBean list object to show the list of connection that user has created
-        List<ConnectionProfileBean> listConnectionProfile = new ArrayList<>();
+        List<IConnectionProfile> listConnectionProfile = new ArrayList<>();
+        listConnectionProfile = conService.findConnectionsByHostId(current_user.getId());
+
         
-        List<Connection> listConnections = conService.findByHostId(current_user.getId());
-        for(Connection con : listConnections ) {
-        	Category cate = cateService.findById(con.getCategory_id());
-        	listConnectionProfile.add(new ConnectionProfileBean(con.getId(),con.getName(), cate.getName()));
-        }
+//        List<Connection> listConnections = conService.findByHostId(current_user.getId());
+//        for(Connection con : listConnections ) {
+//        	Category cate = cateService.findById(con.getCategory_id());
+//        	listConnectionProfile.add(new ConnectionProfileBean(con.getId(),con.getName(), cate.getName()));
+//        }
     
-        //List<Object> listConnections = conservice.findConnectionsByHostId(current_user.getId());
         //how to mapping the Object into ConnectionProfileBean
         
 		/*
