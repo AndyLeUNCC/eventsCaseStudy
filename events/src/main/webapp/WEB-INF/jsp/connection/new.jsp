@@ -61,8 +61,8 @@
 				<button type="submit" id="submit" class="btn">Create Connection</button>
 				&nbsp; &nbsp;
 
-				<button type="submit" id="cancel" class="btn" formmethod="GET"
-					formaction="/connection/list">Cancel</button>
+			<!-- 	<button type="submit" id="cancel" class="btn" formmethod="GET"
+					formaction="/connection/list">Cancel</button> -->
 			</div>
 		</form>
 	</div>
