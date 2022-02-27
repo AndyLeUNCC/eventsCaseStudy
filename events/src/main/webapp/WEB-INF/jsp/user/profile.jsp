@@ -48,7 +48,43 @@
 		<!-- The user's RSVP section -->
 		<h2>${user.firstName} ${user.lastName }'s RSVPs</h2>
 		<br>
-		
+		<c:choose>
+			<c:when test="${listRsvp.size() > 0 }">
+				<table class="table-rsvp">
+					<tr>
+						<th>Connection</th>
+						<th>Category</th>
+						<th>Going</th>
+						<th colspan="2">Actions</th>
+					</tr>
+
+					<c:forEach items="${listRsvp}" var="rsvp">
+						<tr>
+							<td>
+									<p>${ rsvp.name}</p>
+							</a></td>
+							<td>
+								<p>${rsvp.categoryName}</p>
+
+							</td>
+							<td>
+								<p>${rsvp.attending}</p>
+
+							</td>
+							<td><a class="btn btn-primary" role="button"
+								href="/connection/show?id=${rsvp.connection}">Edit</a></td>
+							<td><a class="btn btn-danger" role="button"
+								href="/rsvp/delete?id=${rsvp.id}">Delete</a></td>
+							
+						</tr>
+					</c:forEach>
+
+				</table>
+			</c:when>
+			<c:otherwise>
+				<p>You have not rsvped any connections</p>
+			</c:otherwise>
+		</c:choose>
 		<%-- <%if (rsvps.length > 0){%>
 		<table class="table-rsvp">
 			<tr>

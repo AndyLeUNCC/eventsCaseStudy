@@ -3,12 +3,14 @@ package com.events.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import com.events.database.dao.ConnectionDAO;
 import com.events.database.entity.Connection;
 import com.events.database.form.ConnectionProfileBean;
 import com.events.database.form.IConnectionProfile;
+import com.events.database.form.IConnectionProfileRsvp;
 
 @Service
 public class ConnectionService {
@@ -45,6 +47,10 @@ public class ConnectionService {
 	public List<IConnectionProfile> findConnectionsByHostId(Integer hostId) {
 		return repo.findConnectionsByHostId(hostId);
 
+	}
+	
+	public List<IConnectionProfileRsvp> findRsvpByUser(Integer hostId){
+		return repo.findRsvpByUser(hostId);
 	}
 
 	public void delete(Connection connection) {

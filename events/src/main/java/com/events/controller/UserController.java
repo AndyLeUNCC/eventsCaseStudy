@@ -34,6 +34,7 @@ import com.events.database.entity.User;
 import com.events.database.form.ConnectionProfileBean;
 import com.events.database.form.EditUserBean;
 import com.events.database.form.IConnectionProfile;
+import com.events.database.form.IConnectionProfileRsvp;
 import com.events.database.form.RegisterFormBean;
 import com.events.service.CategoryService;
 import com.events.service.ConnectionService;
@@ -153,7 +154,9 @@ public class UserController {
         //create ConnectionProfileBean list object to show the list of connection that user has created
         List<IConnectionProfile> listConnectionProfile = new ArrayList<>();
         listConnectionProfile = conService.findConnectionsByHostId(current_user.getId());
-
+        
+        List<IConnectionProfileRsvp> listRsvp = conService.findRsvpByUser(current_user.getId());
+        //System.out.println(listRsvp);
         
 //        List<Connection> listConnections = conService.findByHostId(current_user.getId());
 //        for(Connection con : listConnections ) {
@@ -169,6 +172,8 @@ public class UserController {
 		 * }
 		 */
         model.addAttribute("listConnectionProfile", listConnectionProfile);
+        model.addAttribute("listRsvp", listRsvp);
+
         System.out.println(listConnectionProfile);
 
         return response;
