@@ -193,6 +193,9 @@ public class CategoryController {
 
         Category delete = service.findById(id);
         if ( delete != null ) {
+        	//delete the connection has relevant to this category first
+        	
+        	//then delete this category
             service.delete(delete);
         }
         RegisterCategoryBean form = new RegisterCategoryBean();
