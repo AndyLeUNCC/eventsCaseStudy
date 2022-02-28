@@ -49,6 +49,7 @@ public class SignUpController {
     public ModelAndView signUp(@Valid RegisterFormBean form, BindingResult errors) throws Exception {
         ModelAndView response = new ModelAndView();
 
+        LOG.info("Input values form : " + form);
         System.out.println(form);
 
         if (errors.hasErrors()) {

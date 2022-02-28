@@ -60,7 +60,7 @@ public class AdminController {
     public ModelAndView index(HttpServletRequest request, HttpSession session) throws Exception {
         ModelAndView response = new ModelAndView();
         response.setViewName("admin/home");
-//        log.debug("");
+        LOG.info("Admin Home Page");
         return response;
     }
     
@@ -68,6 +68,8 @@ public class AdminController {
     public ModelAndView upload(HttpServletRequest request, HttpSession session) throws Exception {
         ModelAndView response = new ModelAndView();
         response.setViewName("user/upload");
+        LOG.info("Upload file Page");
+
         return response;
     }
     //fileUploadSubmit
