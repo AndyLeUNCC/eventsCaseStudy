@@ -28,15 +28,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.events.database.entity.Category;
-import com.events.database.entity.Connection;
 import com.events.database.entity.User;
-import com.events.database.form.ConnectionProfileBean;
 import com.events.database.form.EditUserBean;
 import com.events.database.form.IConnectionProfile;
 import com.events.database.form.IConnectionProfileRsvp;
 import com.events.database.form.RegisterFormBean;
-import com.events.service.CategoryService;
 import com.events.service.ConnectionService;
 import com.events.service.UserService;
 
@@ -55,12 +51,9 @@ public class UserController {
 
     @Autowired
     private UserService service;
-    
+
     @Autowired
     private ConnectionService conService;
-    
-    @Autowired
-    private CategoryService cateService;
 
 
     @RequestMapping(value = "/uploadFile", method = RequestMethod.GET)
@@ -69,7 +62,7 @@ public class UserController {
         response.setViewName("user/upload");
         return response;
     }
-    
+
     @RequestMapping(value = "/searchFile", method = RequestMethod.GET)
     public ModelAndView searchFile(HttpServletRequest request, HttpSession session) throws Exception {
         ModelAndView response = new ModelAndView();
@@ -116,11 +109,11 @@ public class UserController {
 
 
         ModelAndView response = new ModelAndView();
-        
+
         response.setViewName("user/upload");
         return response;
     }
-    
+
     @ResponseBody
     @RequestMapping(value = "/user/fileList", method = RequestMethod.GET)
     public List<String> fileList() throws Exception {
@@ -140,12 +133,12 @@ public class UserController {
     public ModelAndView index(Model model, HttpServletRequest request, HttpSession session) throws Exception {
         ModelAndView response = new ModelAndView();
         response.setViewName("user/profile");
-        
+
         //get the user information from the spring security here
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
 		String currentPrincipalName = authentication.getName();//get the email from the authentication
-		
+
 		User current_user = service.findByEmail(currentPrincipalName);
 		//set the user session
         session.setAttribute("user", current_user);
@@ -154,21 +147,21 @@ public class UserController {
         //create ConnectionProfileBean list object to show the list of connection that user has created
         List<IConnectionProfile> listConnectionProfile = new ArrayList<>();
         listConnectionProfile = conService.findConnectionsByHostId(current_user.getId());
-        
+
         List<IConnectionProfileRsvp> listRsvp = conService.findRsvpByUser(current_user.getId());
         //System.out.println(listRsvp);
-        
+
 //        List<Connection> listConnections = conService.findByHostId(current_user.getId());
 //        for(Connection con : listConnections ) {
 //        	Category cate = cateService.findById(con.getCategory_id());
 //        	listConnectionProfile.add(new ConnectionProfileBean(con.getId(),con.getName(), cate.getName()));
 //        }
-    
+
         //how to mapping the Object into ConnectionProfileBean
-        
+
 		/*
 		 * for(Object connection : listConnections) { System.out.println(connection);
-		 * 
+		 *
 		 * }
 		 */
         model.addAttribute("listConnectionProfile", listConnectionProfile);
@@ -178,7 +171,7 @@ public class UserController {
 
         return response;
     }
-    
+
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
     public ModelAndView edit(@RequestParam(required = false) Integer id ) throws Exception {
         ModelAndView response = new ModelAndView();
@@ -252,10 +245,10 @@ public class UserController {
                   user.setPassword(encryptedPassword);
 
             }
- 
+
             user.setUsername(form.getUsername());
 
-          
+
             service.save(user);
 
             form.getSuccessMessages().add("User Account Updated Successfully!");
@@ -277,5 +270,5 @@ public class UserController {
 
 
 
-    
+
 }

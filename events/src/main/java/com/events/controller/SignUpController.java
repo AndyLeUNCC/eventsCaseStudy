@@ -24,7 +24,7 @@ import com.events.service.UserService;
 @Controller
 @RequestMapping("/signUp")
 public class SignUpController {
-	
+
 	// make sure are import the slf4j object imports for this line of code
     public static final Logger LOG = LoggerFactory.getLogger(UserController.class);
 
@@ -33,7 +33,7 @@ public class SignUpController {
 
     @Autowired
     private UserService service;
-    
+
     @Autowired
     private UserRoleService userRoleService;
 

@@ -24,7 +24,6 @@ import com.events.database.entity.Category;
 import com.events.database.entity.Connection;
 import com.events.database.entity.Rsvp;
 import com.events.database.entity.User;
-import com.events.database.entity.UserRole;
 import com.events.database.form.RegisterConnectionBean;
 import com.events.service.CategoryService;
 import com.events.service.ConnectionService;
@@ -45,13 +44,13 @@ public class ConnectionController {
 
     @Autowired
     private ConnectionService con_service;
-    
+
     @Autowired
     private CategoryService cate_service;
-    
+
     @Autowired
     private UserService user_service;
-    
+
     @Autowired
     private RsvpService rsvp_service;
 
@@ -70,7 +69,7 @@ public class ConnectionController {
         model.addAttribute("keyword", keyword);
         return response;
     }
-    
+
     @RequestMapping(value = "/adminlist", method = RequestMethod.GET)
     public ModelAndView adminConnectionList(Model model, @Param("keyword") String keyword) throws Exception {
         ModelAndView response = new ModelAndView();
@@ -84,7 +83,7 @@ public class ConnectionController {
         model.addAttribute("keyword", keyword);
         return response;
     }
-    
+
     @RequestMapping(value = "/show", method = RequestMethod.GET)
     public ModelAndView show(@RequestParam(required = false) Integer id ) throws Exception {
         ModelAndView response = new ModelAndView();
@@ -96,7 +95,7 @@ public class ConnectionController {
             // populate the form bean with the data loaded from the database
             RegisterConnectionBean form = new RegisterConnectionBean();
             // since we loaded this from the database we know the id field
-            form.setId(connection.getId());            
+            form.setId(connection.getId());
             form.setName(connection.getName());
             form.setCategory_id(connection.getCategory_id());//get from the hidden variable
             form.setDetails(connection.getDetails());
@@ -111,7 +110,7 @@ public class ConnectionController {
             response.addObject("connection", form);
             response.addObject("host_user", host_user);
             System.out.println("host_user" + host_user);
-            
+
             //use rsvp_service to get the list of rsvp to show on this connection page
             List<Rsvp> listRsvp = rsvp_service.findByConnectionAndAttending(id, "yes");
             System.out.println("listRsvp" + listRsvp);
@@ -141,7 +140,7 @@ public class ConnectionController {
 
             // since we loaded this from the database we know the id field
             form.setId(connection.getId());
-            
+
             //get category list from database
             List<Category> listCategories = cate_service.listAll("");
 
@@ -153,17 +152,17 @@ public class ConnectionController {
             // there is no data from the database so give an empty form bean
             RegisterConnectionBean form = new RegisterConnectionBean();
             response.addObject("formBeanKey", form);
-            
+
             //get category list from database
             List<Category> listCategories = cate_service.listAll("");
 
             response.addObject("formBeanKey", form);
             response.addObject("listCategories", listCategories);
-            
+
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
 			String currentPrincipalName = authentication.getName();//get the email from the authentication
-			
+
 			User current_user = user_service.findByEmail(currentPrincipalName);
             response.addObject("host_id", current_user.getId());
 
@@ -187,7 +186,7 @@ public class ConnectionController {
             // populate the form bean with the data loaded from the database
             RegisterConnectionBean form = new RegisterConnectionBean();
             // since we loaded this from the database we know the id field
-            form.setId(connection.getId());            
+            form.setId(connection.getId());
             form.setName(connection.getName());
             form.setCategory_id(connection.getCategory_id());//get from the hidden variable
             form.setDetails(connection.getDetails());
@@ -210,13 +209,13 @@ public class ConnectionController {
             // there is no data from the database so give an empty form bean
         	RegisterConnectionBean form = new RegisterConnectionBean();
             response.addObject("formBeanKey", form);
-            
+
             //get category list from database
             List<Category> listCategories = cate_service.listAll("");
 
             response.addObject("formBeanKey", form);
             response.addObject("listCategories", listCategories);
-            
+
 			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
 			String currentPrincipalName = authentication.getName();//get the email from the authentication
@@ -279,29 +278,29 @@ public class ConnectionController {
             response.addObject("formBeanKey", form);
             //if user is admin then go to connection/adminlist
             //otherwise go to connection/show
-            
+
 			/*
 			 * Authentication authentication =
 			 * SecurityContextHolder.getContext().getAuthentication();
-			 * 
+			 *
 			 * String currentPrincipalName = authentication.getName();//get the email from
 			 * the authentication
-			 * 
+			 *
 			 * User current_user = user_service.findByEmail(currentPrincipalName);
 			 * List<UserRole> userRoles = user_service.getUserRoles(current_user.getId());
 			 * boolean admin = false; for(UserRole role:userRoles) { if (role.getUserRole()
 			 * == "ADMIN") { admin = true; break; } } if (admin) {
 			 * response.setViewName("redirect:/connection/adminlist");
-			 * 
+			 *
 			 * } else { response.setViewName("redirect:/connection/show?id=" +form.getId());
 			 * }
 			 */
 
-            
+
             response.setViewName("connection/show");
-           
-           
-            form.setId(connection.getId());            
+
+
+            form.setId(connection.getId());
             form.setName(connection.getName());
             form.setCategory_id(connection.getCategory_id());//get from the hidden variable
             form.setDetails(connection.getDetails());
@@ -317,7 +316,7 @@ public class ConnectionController {
             response.addObject("connection", form);
             response.addObject("host_user", host_user);
             System.out.println("host_user" + host_user);
-            
+
             //use rsvp_service to get the list of rsvp to show on this connection page
             List<Rsvp> listRsvp = rsvp_service.findByConnectionAndAttending(form.getId(), "yes");
             System.out.println("listRsvp" + listRsvp);
@@ -327,7 +326,7 @@ public class ConnectionController {
 
         return response;
     }
-    
+
     @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
     @RequestMapping(value = "/new", method = { RequestMethod.POST, RequestMethod.POST })
     public ModelAndView newSubmit(@Valid RegisterConnectionBean form, BindingResult errors) throws Exception {
@@ -396,12 +395,12 @@ public class ConnectionController {
         response.setViewName("redirect:/connection/list");
         response.setViewName("redirect:/user/profile");
 
-        
+
         Connection delete = con_service.findById(id);
-        
-        
+
+
         if ( delete != null ) {
-        	
+
         	//search rsvp that are relationship with this connection
             List<Rsvp> listDelete = rsvp_service.findByConnection(id);
             if (listDelete != null ) {

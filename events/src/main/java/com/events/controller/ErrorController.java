@@ -18,7 +18,7 @@ public class ErrorController {
 
 	//@Autowired
 	//private AuthenticatedUserService authenticatedUserService;
-	
+
     public static final Logger LOG = LoggerFactory.getLogger(UserController.class);
 
 

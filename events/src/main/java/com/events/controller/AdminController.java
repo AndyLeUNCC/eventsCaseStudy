@@ -15,8 +15,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,13 +28,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.events.database.entity.User;
-import com.events.database.form.ConnectionProfileBean;
 import com.events.database.form.EditUserBean;
 import com.events.database.form.RegisterFormBean;
-import com.events.service.ConnectionService;
 import com.events.service.UserService;
-
-import lombok.extern.slf4j.Slf4j;
 
 
 @Controller
@@ -52,9 +46,6 @@ public class AdminController {
 
     @Autowired
     private UserService service;
-    
-    @Autowired
-    private ConnectionService conservice;
 
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public ModelAndView index(HttpServletRequest request, HttpSession session) throws Exception {
@@ -63,7 +54,7 @@ public class AdminController {
         LOG.info("Admin Home Page");
         return response;
     }
-    
+
     @RequestMapping(value = "/uploadFile", method = RequestMethod.GET)
     public ModelAndView upload(HttpServletRequest request, HttpSession session) throws Exception {
         ModelAndView response = new ModelAndView();
@@ -115,7 +106,7 @@ public class AdminController {
         response.setViewName("user/upload");
         return response;
     }
-    
+
     @ResponseBody
     @RequestMapping(value = "/user/fileList", method = RequestMethod.GET)
     public List<String> fileList() throws Exception {
@@ -136,13 +127,12 @@ public class AdminController {
         ModelAndView response = new ModelAndView();
         response.setViewName("user/profile");
         System.out.println("<AdminController> profile");
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		
-        
+
+
 //        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 //
 //		String currentPrincipalName = authentication.getName();//get the email from the authentication
-//		
+//
 //		User current_user = service.findByEmail(currentPrincipalName);
 //		System.out.println("current user is "+ current_user);
 //        response.addObject("user", current_user);
@@ -294,10 +284,10 @@ public class AdminController {
                   user.setPassword(encryptedPassword);
 
             }
- 
+
             user.setUsername(form.getUsername());
 
-          
+
             service.save(user);
             form.getSuccessMessages().add("User Account Updated Successfully!");
             response.addObject("formBeanKey", form);
