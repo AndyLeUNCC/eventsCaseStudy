@@ -97,6 +97,7 @@ public class RsvpController {
         	
         }
 
+        LOG.info("new Rsvp record " + rsvp);
         response.setViewName("redirect:/connection/show?id="+id);
 
         return response;
@@ -114,7 +115,8 @@ public class RsvpController {
         Rsvp delete = rsvp_service.findById(id);
         if (delete != null ) {
             rsvp_service.delete(delete);
-        	
+            LOG.info("delete Rsvp record " + delete);
+
         }
         
         return response;

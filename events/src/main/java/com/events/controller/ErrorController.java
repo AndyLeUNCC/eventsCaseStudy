@@ -3,6 +3,8 @@ package com.events.controller;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -16,10 +18,13 @@ public class ErrorController {
 
 	//@Autowired
 	//private AuthenticatedUserService authenticatedUserService;
+	
+    public static final Logger LOG = LoggerFactory.getLogger(UserController.class);
+
 
 	@RequestMapping(value = "/error/404")
 	public String error404(HttpServletRequest request) {
-
+		LOG.debug("error 404 occurs");
 		return "error/404";
 	}
 
@@ -32,6 +37,7 @@ public class ErrorController {
 		//} else {
 		//	log.error("Unauthenticated user requested url that they do not have permission to " + request.getRequestURL() + " from IP address " + WebUtils.getIpAddress(request));
 		//}
+		LOG.debug("acccess denied occurs");
 
 
 		return model;
@@ -48,6 +54,8 @@ public class ErrorController {
 			model.addObject("message", ex.getMessage());
 			model.addObject("stackTrace", stackTrace);
 		//}
+
+		LOG.debug("handleAllException occurs");
 
 		return model;
 	}

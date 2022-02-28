@@ -205,6 +205,8 @@ public class UserController {
             // there is no data from the database so give an empty form bean
             RegisterFormBean form = new RegisterFormBean();
             response.addObject("formBeanKey", form);
+            LOG.info("register a new user account form : " + form);
+
         }
 
         return response;
@@ -259,6 +261,8 @@ public class UserController {
             form.getSuccessMessages().add("User Account Updated Successfully!");
             response.addObject("formBeanKey", form);
             response.setViewName("/user/profile");
+            LOG.info("edit a new user account form : " + form);
+
         }
 
         return response;

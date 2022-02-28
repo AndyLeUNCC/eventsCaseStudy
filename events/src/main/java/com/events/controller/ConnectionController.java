@@ -65,6 +65,8 @@ public class ConnectionController {
         List<Category> listCategories = cate_service.listAll("");
         model.addAttribute("listCategories", listCategories);
 
+        LOG.info("list of connections " + listConnections);
+
         model.addAttribute("keyword", keyword);
         return response;
     }
@@ -76,6 +78,8 @@ public class ConnectionController {
 
         List<Connection> listConnections = con_service.listAll(keyword);
         model.addAttribute("listConnections", listConnections);
+        LOG.info("list of connections " + listConnections);
+
 
         model.addAttribute("keyword", keyword);
         return response;
@@ -112,6 +116,8 @@ public class ConnectionController {
             List<Rsvp> listRsvp = rsvp_service.findByConnectionAndAttending(id, "yes");
             System.out.println("listRsvp" + listRsvp);
             response.addObject("listRsvp", listRsvp);
+            LOG.info("RSVP information " + listRsvp);
+
 
         }
 

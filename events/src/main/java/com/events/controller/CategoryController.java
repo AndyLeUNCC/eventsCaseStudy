@@ -43,6 +43,8 @@ public class CategoryController {
         List<Category> listCategories = service.listAll(keyword);
         model.addAttribute("listCategories", listCategories);
         model.addAttribute("keyword", keyword);
+        LOG.info("list of categories " + listCategories);
+
         return response;
     }
 
@@ -70,6 +72,8 @@ public class CategoryController {
         	RegisterCategoryBean form = new RegisterCategoryBean();
             response.addObject("formBeanKey", form);
         }
+        LOG.info("New a category " + id);
+
 
         return response;
     }
