@@ -3,6 +3,7 @@ package com.events.controller;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -30,8 +31,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.events.database.entity.User;
 import com.events.database.form.EditUserBean;
-import com.events.database.form.IConnectionProfile;
-import com.events.database.form.IConnectionProfileRsvp;
 import com.events.database.form.RegisterFormBean;
 import com.events.service.ConnectionService;
 import com.events.service.UserService;
@@ -145,10 +144,10 @@ public class UserController {
         //response.addObject("userProfile", user);
 
         //create ConnectionProfileBean list object to show the list of connection that user has created
-        List<IConnectionProfile> listConnectionProfile = new ArrayList<>();
+        List<Map<String, Object>> listConnectionProfile = new ArrayList<>();
         listConnectionProfile = conService.findConnectionsByHostId(current_user.getId());
 
-        List<IConnectionProfileRsvp> listRsvp = conService.findRsvpByUser(current_user.getId());
+        List<Map<String, Object>> listRsvp = conService.findRsvpByUser(current_user.getId());
         //System.out.println(listRsvp);
 
 //        List<Connection> listConnections = conService.findByHostId(current_user.getId());
@@ -166,6 +165,19 @@ public class UserController {
 		 */
         model.addAttribute("listConnectionProfile", listConnectionProfile);
         model.addAttribute("listRsvp", listRsvp);
+
+		/*
+		 * for(Map<String, Object> entryMap : mapList) { for(Entry<String, Object> entry
+		 * : entryMap.entrySet()) { if (entry.getKey().compareTo("categoryName") == 0) {
+		 * System.out.println("categoryName" + " / " + entry.getValue());
+		 * 
+		 * } else if (entry.getKey().compareTo("name") == 0) {
+		 * System.out.println("connection name" + " / " + entry.getValue());
+		 * 
+		 * } else { System.out.println(entry.getKey() + " / " + entry.getValue());
+		 * 
+		 * } } System.out.println("---"); }
+		 */
 
         System.out.println(listConnectionProfile);
 
