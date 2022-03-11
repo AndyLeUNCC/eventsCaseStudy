@@ -1,7 +1,5 @@
 # eventsCaseStudy
-This is a connection/event management system
-Project Description
-My project is to build a website system that allows users to create events to connect with other users on the internet. 
+This is a connection/event management system. It is website system that allows users to create events to connect with other users on the internet. 
 The system allows website visitors to view all events created by registered users. 
 But they cannot register to attend if they are not a registered member with an account on the system.
 
