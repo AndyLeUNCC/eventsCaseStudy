@@ -5,16 +5,16 @@ My project is to build a website system that allows users to create events to co
 The system allows website visitors to view all events created by registered users. 
 But they cannot register to attend if they are not a registered member with an account on the system.
 3 roles: visitor, registered user, admin
-Visitor 
+- Visitor 
  - view all of connections
  - set up a new account
  - can not do RSVP on the connection
-Registered User
+- Registered User
  - has all of roles of the visitor
  - create a new connection
  - manage list of the their connections
  - do RSVP on the connection
-Admin User
+- Admin User
  - have all of roles of user 
  - manage list of users, list of connections, list of categories.
 
