@@ -5,6 +5,8 @@ My project is to build a website system that allows users to create events to co
 The system allows website visitors to view all events created by registered users. 
 But they cannot register to attend if they are not a registered member with an account on the system.
 
+The project was created with Spring Boot, Spring MVC, Spring Security, Spring Data, Hibernate, MySQL, Maven, Javasript, Ajax, Jquery, CSS and HTML
+
 3 roles: visitor, registered user, admin
 - Visitor: view all of connections, set up a new account but they can not do RSVP on the connection
 - Registered User: has all of roles of the visitor, create a new connection, manage list of the their connections, do RSVP on the connection
